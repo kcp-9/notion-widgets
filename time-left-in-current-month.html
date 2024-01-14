@@ -51,7 +51,7 @@
   </head>
   <body>
     <div id="counter">
-      <h2>Time left in This Month</h2>
+      <h2>Time left in This <u>Month</u></h2>
     </div>
     <div>
       <h2 class="box" id="days"></h2>
@@ -75,10 +75,18 @@
         days = days_in_this_month - now.getDate();
         hours = 23 - now.getHours();
         minutes = 59 - now.getMinutes();
-        left_days.innerHTML = days > 1 ? days + ' days ' : days + 'day';
-        left_hours.innerHTML = hours > 1 ? hours + ' hours ' : hours + 'hour';
+        left_days.innerHTML =
+          days > 1
+            ? days + '<br> <span class="small"> days </span>'
+            : days + '<br> <span class="small"> day </span>';
+        left_hours.innerHTML =
+          hours > 1
+            ? hours + '<br> <span class="small"> hours</span>'
+            : hours + '<br> <span class="small"> hour</span>';
         left_minutes.innerHTML =
-          minutes > 1 ? minutes + ' mins ' : minutes + 'minute';
+          minutes > 1
+            ? minutes + '<br> <span class="small">mins</span>'
+            : minutes + '<br> <span class="small">min</span>';
       }
 
       timer = setInterval(showRemaining, 1000);
